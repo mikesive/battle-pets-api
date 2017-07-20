@@ -5,6 +5,7 @@ class BattlePet < ApplicationRecord
 
   MAX_ATTR_LIMIT = {
     numericality: {
+      greater_than_or_equal_to: 0,
       less_than_or_equal_to: 10
     }
   }
@@ -12,6 +13,7 @@ class BattlePet < ApplicationRecord
   has_many :losses, foreign_key: :loser_id, class_name: 'Battle'
   has_many :wins, foreign_key: :winner_id, class_name: 'Battle'
   validates :name, presence: true
+  validates :user_id, presence: true
   validates :agility, MAX_ATTR_LIMIT
   validates :intelligence, MAX_ATTR_LIMIT
   validates :senses, MAX_ATTR_LIMIT
