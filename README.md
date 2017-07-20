@@ -1,5 +1,20 @@
 # README
 
+## Api Architecture
+
+### Projects
+
+The Api consists of 3 different projects:
+* An auth api for managing user registration and auth
+* A management api that acts as an api gateway for the auth api, as well as manages battle pets and battles
+* A set of workers to handle recruitment and battles
+
+### Plumbing
+
+There are two different queues that provide communication between the above-mentioned applications
+* Redis is used by the management-api and the workers, to communicate back and forth. Each of those have a set of sidekiq workers that read off of a queue specific to each project
+* RabbitMQ is used for synchronous message processing between the management-api and the auth-api. I have used CarrotRpc (https://github.com/C-S-D/carrot_rpc) to implement Remote Procedure Calls for the different auth-api actions
+
 ## Api Documentation
 **Note: All parameters are required unless otherwise specified**
 
