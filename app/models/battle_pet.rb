@@ -43,8 +43,8 @@ class BattlePet < ApplicationRecord
     loss_count = losses.count
     win_count = wins.count
     total_count = loss_count + win_count
-    total_count = total_count.zero? ? 1 : total_count
     # Give more experience based on win vs loss count
-    (total_count + win_count) / total_count
+    (total_count + win_count) / (total_count.zero? ? 1 : total_count)
+
   end
 end
