@@ -12,7 +12,7 @@ The Api consists of 3 different projects:
 ### Plumbing
 
 There are two different queues that provide communication between the above-mentioned applications
-* Redis is used by the management-api and the workers, to communicate back and forth. Each of those have a set of sidekiq workers that read off of a queue specific to each project
+* Redis is used by the management-api and the workers, to communicate back and forth. Each of those have a set of Sidekiq workers that read off of a queue specific to each project
 * RabbitMQ is used for synchronous message processing between the management-api and the auth-api. I have used CarrotRpc (https://github.com/C-S-D/carrot_rpc) to implement Remote Procedure Calls for the different auth-api actions
 
 ## Api Documentation
