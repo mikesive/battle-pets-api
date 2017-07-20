@@ -57,7 +57,7 @@ Params: `{"battle": { "battle_type": "XXX", contestant_ids: [x, x] }}`
 * Valid battle_types are agility, intelligence, senses, strength
 * contestant_ids must be an array of 2 ids
 * At least one id must correspond to a pet that the user owns
-* After this is successful, the battle process will begin and the battle will be in a pending state
+* After this is successful, the battle process will begin and the battle will be in an incomplete state
 * You can track the battle by viewing it as shown in "Show a Battle"
 
 #### Show a Battle (secure)
