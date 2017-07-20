@@ -5,9 +5,14 @@
 ### Projects
 
 The Api consists of 3 different projects:
-* An auth api for managing user registration and auth
-* A management api that acts as an api gateway for the auth api, as well as manages battle pets and battles
+* An auth-api for managing user registration and auth
+* A management-api that acts as an api gateway for the auth api, as well as manages battle pets and battles
 * A set of workers to handle recruitment and battles
+
+These can be found at:
+* auth-api (https://github.com/mikesive/battle-pets-auth)
+* management-api (https://github.com/mikesive/battle-pets-api)
+* workers (https://github.com/mikesive/battle-pets-workers)
 
 ### Plumbing
 
