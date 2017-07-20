@@ -28,7 +28,7 @@ class BattlePetsController < SecureController
   end
 
   def index
-    pets = BattlePets.where(user_id: current_user.id)
+    pets = BattlePet.where(user_id: current_user.id)
     render json: pets, status: :ok
   end
 
