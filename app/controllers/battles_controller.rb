@@ -24,8 +24,9 @@ class BattlesController < SecureController
       battle_type = battle_params[:battle_type]
 
       # Ensure battle type is correct
-      if !BattlePet::ATTRIBUTES.include?(battle_type)
-        render json: { error: 'Invalid attribute given.' }, status: :unprocessable_entity
+      valid_attributes = BattlePet::ATTRIBUTES
+      if !valid_attributes.include?(battle_type)
+        render json: { error: "Invalid battle_type given. Valid types are #{valid_atrributes.join(', ')}" }, status: :unprocessable_entity
 
       # Ensure the user has given us 2 valid pet_ids for battle
       elsif pets.count != 2 || !pets.map(&:user_id).include?(current_user.id)

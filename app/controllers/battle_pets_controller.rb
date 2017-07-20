@@ -32,6 +32,9 @@ class BattlePetsController < SecureController
     render json: pets, status: :ok
   end
 
+  # Note: I have not scoped this to current user
+  # At some point you may want to take a closer look at other user's pets
+  # to determine if you want to battle them.
   def show
     pet = BattlePet.find(params[:id])
     render json: pet, status: :ok
