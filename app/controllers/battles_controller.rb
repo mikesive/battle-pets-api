@@ -30,7 +30,7 @@ class BattlesController < SecureController
 
       # Ensure the user has given us 2 valid pet_ids for battle
       elsif pets.count != 2 || !pets.map(&:user_id).include?(current_user.id)
-        render json: { error: 'Invalid contestant_ids. You must choose 2 active pets a battle, one of which you must own.' }, status: :unprocessable_entity
+        render json: { error: 'Invalid contestant_ids. You must choose 2 active pets, one of which you must own.' }, status: :unprocessable_entity
 
       else
         # Set the pets state and create a battle
@@ -70,6 +70,6 @@ class BattlesController < SecureController
   private
 
   def battle_params
-    params.require(:battle).permit(:battle_type, :contestant_ids)
+    params.require(:battle).permit(:battle_type, contestant_ids: [])
   end
 end
